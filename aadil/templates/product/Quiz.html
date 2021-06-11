@@ -1,0 +1,111 @@
+
+{% load static %}
+<html>
+<head>
+<title>Aadil's Quiz</title>
+<body>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<font size="+5">
+<div class="quiz-box home-box ">
+
+<a href="base.html"><font size=+1>RETURN TO HOME</a href></font> <br>Instruction:<br>
+</font><br>
+Total Number of Questions:5 
+
+<br>
+Click The correct option and press the Submit Quiz Button to check your result<br>
+
+</div>
+<p align="center">
+<div class="quiz-box custom-box " id="wwe">
+<h1><marquee>Aadil's GK Quiz</marquee></h1>
+
+<hr>
+<font color="#009688" size="+3">
+Q1 Who has won the most Royal Rumble matches in WWE history?<br>
+<input type="radio" name="question1" id="correct1">&nbsp &nbsp &nbsp;Stone Cold Steve Austin<br>
+<input type="radio" name="question1">&nbsp &nbsp &nbsp;The Rock<br>
+<input type="radio" name="question1">&nbsp &nbsp &nbspThe Undertaker<br>
+<input type="radio" name="question1">&nbsp &nbsp &nbsp John Cena<br><br><br>
+</font>
+<hr>
+<font size="+3">
+Q2 Who has an average of 99.97 in test Cricket?<br>
+<input type="radio" name="question2">&nbsp &nbsp &nbsp Brian Lara<br>
+<input type="radio" name="question2">&nbsp &nbsp &nbsp Sachin Tendulkar<br>
+<input type="radio" name="question2" id="correct2">&nbsp &nbsp &nbsp Sir Don Bradman<br>
+<input type="radio" name="question2">&nbsp &nbsp &nbsp AB Devillers<br><br><br>
+</font>
+<hr>
+
+<font color="#34eb6e" size="+3">
+Q3 Who has scored most UCl goals in Ucl history?<br>
+<input type="radio" name="question3">&nbsp &nbsp &nbsp Johan Cruyff<br>
+<input type="radio" name="question3" id="correct3">&nbsp &nbsp &nbsp Cristiano Ronaldo<br>
+<input type="radio" name="question3">&nbsp &nbsp &nbsp Lionel Messi<br>
+<input type="radio" name="question3">&nbsp &nbsp &nbsp Diego Maradona<br><br><br>
+</font>
+<hr>
+<font color="#ba8814" size="+3">
+
+Q4 Who has won the most NBA titles?<br>
+<input type="radio" name="question4">&nbsp &nbsp &nbsp Stephen Curry<br>
+<input type="radio" name="question4" id="correct4">&nbsp &nbsp &nbsp Kobe Bryant<br>
+<input type="radio" name="question4">&nbsp &nbsp &nbsp Kevin Durant<br>
+<input type="radio" name="question4">&nbsp &nbsp &nbsp Larry Bird<br><br><br>
+</font>
+<hr>
+<font color="#c634eb" size="+3">
+
+Q5 Who has won the most Grand Slam ?<br>
+<input type="radio" name="question5">&nbsp &nbsp &nbsp Raphel Nadal<br>
+<input type="radio" name="question5" >&nbsp &nbsp &nbsp Novak Djokovic<br>
+<input type="radio" name="question5">&nbsp &nbsp &nbsp Pete Sampras<br>
+<input type="radio" name="question5" id="correct5">&nbsp &nbsp &nbsp Roger Federer<br><br><br>
+</font>
+<hr>
+<font color="#b7ba14" size="+3">
+
+
+<br>
+<input type="submit" name="Submit" value="Submit Quiz" onclick="result()" class="button">
+<input type="reset" class="button" value="Try Agian">
+</div>
+<script type="text/javascript">
+ function result(){
+ //body....
+ var score=0;
+ if(document.getElementById('correct1').checked)
+ {
+    score++;
+ }
+  if(document.getElementById('correct2').checked)
+ {
+    score++;
+ }
+  if(document.getElementById('correct3').checked)
+ {
+    score++;
+ }
+  if(document.getElementById('correct4').checked)
+ {
+    score++;
+	 }
+  if(document.getElementById('correct5').checked)
+ {
+    score++;
+	 }
+
+
+ alert("Your score is :"+score+"out of 5");
+ 
+ }
+ 
+</script>
+</body> 
+
+</div>
+
+</body>
+</html>

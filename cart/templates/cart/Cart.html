@@ -1,0 +1,63 @@
+{% extends "aadil/base.html" %}
+{% load static %}
+
+{% block title %}
+  Your shopping cart
+{% endblock %}
+
+{% block content %}
+  <h1>Your shopping cart</h1>
+  <table class="cart">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Remove</th>
+        <th>Unit price</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in Cart %}
+        {% with product=item.product %}
+          <tr>
+            <td>
+              <a href="{{ product.get_absolute_url }}">
+                <img src="{% if product.image %}{{ product.image.url }}">
+              </a>
+            </td>
+            <td>{{ product.name }}</td>
+            <td>
+              <form action="{% url 'cart:cart_add' product.id %}" method="POST">
+                {{ item.update_form.quantity }}
+                {{ item.update_form.override }}
+                <input type="submit" value="Update">
+                {% csrf_token %}
+              </form>
+            </td>
+            <td>
+              <form action="{% url 'cart:cart_remove' product.id %}" method="POST">
+                <input type="submit" value="Remove">
+                {% csrf_token %}
+              </form>
+            </td>
+            <td class="num">Rs.{{ item.price }}</td>
+            <td class="num">Rs.{{ item.total_price }}</td>
+          </tr>
+        {% endwith %}
+      {% endfor %}
+      <tr class="total">
+        <td>Total</td>
+        <td colspan="4"></td>
+        <td class="num">Rs.{{ cart.get_total_price }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="text-right">
+    <a href="{% url 'aadil:list_product' %}" class="button light">Need More Items</a>
+    
+  </p>
+
+{% endblock %}

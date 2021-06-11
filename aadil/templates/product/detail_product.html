@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    {{product.name}}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+ 
+<div class="product-detail">
+    
+    <img src="{% if product.image %} {{product.image.url}} {% endif %}" width=4000 length=5000>
+    <p align="center">
+    <h1>{{product.name}}</h1>
+
+    <h2>
+        <a href="{{product.category.get_absolute_url }}">
+        {{product.category}}
+
+    </a>
+    </h2>
+  
+
+    <p class="price">Rs. {{product.price}} </p>
+
+    <p align="center">
+   <h3> {{ product.description|linebreaks }} </h3>
+   <hr><form action = "{% url 'cart:cart_add' product.id %}" method="post"></form>
+    {{ cart_form }}
+
+    {% csrf_token %}
+
+    <input type="submit" value="Add to Cart"></p>
+    
+
+    <ul>
+        <li {% if not category %} class="selected" {% endif %}>
+            <a href="{% url 'aadil:list_product' %}" class="button">You might also like</a>
+        </li>
+    </ul>
+</form>
+</div>
+</p>
+{% endblock %}

@@ -1,0 +1,40 @@
+body{ margin:0;
+      font-size:16px;
+      background-color:#009877;
+}
+*{
+   box-sizing:border-box;
+   margin:0;
+   padding:0;
+   outline:none;
+}
+.home-box{
+             max-width:1000px;
+	     background-color:#ffffff;
+             margin:48px auto;
+             padding:30px;
+             border-radius:10px;
+			 margin-bottom:50px;
+}
+.custom-box {
+	           max-width:700px;
+	     background-color:#ffffff;
+             margin:48px auto;
+             padding:30px;
+             border-radius:10px;
+			 margin-top:50px;
+}			 
+		  
+     
+
+		
+.button{
+	     width:200px;
+	    font-size:26px;
+		padding:25px,30px;
+		background-color:#b51818;
+		margin:0;
+		border-radius:35px;
+}		
+
+	   

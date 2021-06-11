@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    {% if category %}{{category.name}}{% else %}Yellow Submarine Clothing{% endif %}
+
+{% endblock %}
+{% block content %}
+
+<div id="sidebar">
+    <h4>Categories</h4>
+
+    <ul>
+        <li {% if not category %} class="selected" {% endif %}>
+            <a href="{% url 'aadil:list_product' %}">All</a>
+        </li>
+
+        {% for c in categories %}
+            <li {% if category.slug == c.slug %} class="selected" {% endif %}>
+                <a href="{{c.get_absolute_url}}">{{c.name}}</a>
+            </li>
+        {% endfor %} 
+    </ul>
+</div>
+
+<div id="main" class="product-list">
+    <h2>{% if category %}{{category.name}}{% else %}Products{% endif %}</h2>
+
+    {% for product in products %}
+    
+        <div class="item">
+            
+            <div class="card" style="width: 16rem;">
+                   <img class="card-img-top" style="height: 12rem;" src="{% if product.image %} {{product.image.url}} {% endif %}" alt="{{ product.name}}">
+
+                <div class="card-body">
+
+                    <p class="card-text"></p><a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+            
+                    <br>
+                    <hr>
+
+                    Rs. {{product.price}}
+                    <br><br>
+                    <form action = "{% url 'cart:cart_add' product.id %}" method="post">
+                        {{ cart_form }}
+                
+                        {% csrf_token %}
+                
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <br>
+        
+    
+        </div>
+        {% endfor %}
+</div>
+{% endblock %}
